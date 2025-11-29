@@ -1,8 +1,11 @@
+import sys, os
+sys.path.append(os.path.abspath(".."))
+
 import numpy as np
-from soft_dtw import SoftDTW
+from src.soft_dtw import SoftDTW
 from scipy.optimize import minimize
-from soft_dtw import SoftDTW
-from soft_dtw import jacobian_sq_euc, squared_euclidean_distances
+from src.soft_dtw import SoftDTW
+from src.soft_dtw import jacobian_sq_euc, squared_euclidean_distances
 
 def softdtw_barycenter(X_list, Z_init, gamma=1.0, max_iter=50, tol=1e-3, weights=None):
     if X_list is None or len(X_list) == 0:
@@ -20,14 +23,14 @@ def softdtw_barycenter(X_list, Z_init, gamma=1.0, max_iter=50, tol=1e-3, weights
         total_grad = np.zeros_like(Z)
 
         for w, X in zip(weights, X_list):
-            D = squared_euclidean_distances(None, Z, X)
+            D = squared_euclidean_distances(Z, X)
             sdtw = SoftDTW(D, gamma=gamma)
 
             cost = sdtw.forward()
             E = sdtw.backward()
 
             #Calcul du gradient 
-            G = jacobian_sq_euc(None, Z, X, E)
+            G = jacobian_sq_euc(Z, X, E)
 
             total_cost += w * cost
             total_grad += w * G

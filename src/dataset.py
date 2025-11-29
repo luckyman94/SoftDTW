@@ -1,9 +1,10 @@
 import numpy as np
 import os
+from config import *
 
 class Dataset:
     def __init__(self, name="ECG200"):
-        self.dirname = "/Users/ilan/sdtw_data/UCR_TS_Archive_2015"
+        self.dirname = DIRNAME
         self.name = name
 
     def _parse_file(self, filename):

@@ -1,0 +1,45 @@
+# --- Python ---
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# --- Jupyter Notebook ---
+.ipynb_checkpoints/
+.notebooks/
+
+# --- VS Code ---
+.vscode/
+.settings/
+
+# --- macOS ---
+.DS_Store
+
+# --- Virtual environments ---
+.env/
+.venv/
+venv/
+ENV/
+
+# --- Data ---
+data/
+*/UCR_TS_Archive_2015/
+*.zip
+*.tar.gz
+
+# --- Figures & Outputs ---
+figures/*
+logs/*
+outputs/*
+
+# --- Compiled ---
+*.so
+*.dll
+*.dylib
+
+# --- Custom ignores for your structure ---
+config.py
+
+__pycache__/
+src/__pycache__/
+
