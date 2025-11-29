@@ -74,12 +74,12 @@ class SoftDTW:
     
 
 
-def squared_euclidean_distances(self,A, B):
+def squared_euclidean_distances(A, B):
         diff = A[:, None, :] - B[None, :, :]
         return np.sum(diff * diff, axis=2)
     
 
-def jacobian_sq_euc(self,A, B, E):
+def jacobian_sq_euc(A, B, E):
     T, d = A.shape
     G = np.zeros_like(A)
 
