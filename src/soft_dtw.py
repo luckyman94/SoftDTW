@@ -14,7 +14,7 @@ class SoftDTW:
         max_val = max(a, b, c)
         tmp = np.exp(a - max_val) + np.exp(b - max_val) + np.exp(c - max_val)
         return -gamma * (np.log(tmp) + max_val)
-
+    
     def forward(self):
         D = self.D
         m, n = D.shape
